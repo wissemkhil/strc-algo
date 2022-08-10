@@ -2,30 +2,22 @@ ALGORITHM arrayy
 VAR
  set1,set2 : ARRAY_OF INTEGER[50];
  i,j,sum:INTEGER;
- test:boolean;
  BEGIN
  sum:=0;
     FOR i FROM 0 TO set1.length-1 STEP 1  DO
-    test=true;
     FOR j FROM 0 TO set2.length-1 STEP 1  DO
         IF (set1[i]=set2[j]) THEN
-        test=false;
+        sum:=sum+set1[i];
         END_IF
     END_FOR
-    IF (test=true) THEN
-        sum=sum+set1[i];
-    END_IF
  END_FOR
  FOR i FROM 0 TO set2.length-1 STEP 1  DO
-    test=true;
     FOR j FROM 0 TO set1.length-1 STEP 1  DO
         IF (set2[i]=set1[j]) THEN
-        test=false;
+         sum:=sum+set2[i];
         END_IF
     END_FOR
-    IF (test=true) THEN
-        sum=sum+set2[i];
-    END_IF
+  
  END_FOR
- write("sum of distinct element is:",sum)
+ write("sum of overlaping element is:",sum)
 END
